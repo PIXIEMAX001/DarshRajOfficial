@@ -1,62 +1,253 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DARSHTHEGREATESTOFALLTIME</title>
+<link rel="icon" href="data:,">
+<style>
+  :root{
+    --bg1:#0f172a; /* deep indigo */
+    --bg2:#3b82f6; /* electric blue */
+    --accent:#ff66b3; /* pink pop */
+    --card:#0b1220cc;
+    --glass: rgba(255,255,255,0.06);
+    --muted:#9aa6c0;
+    --radius:16px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
 
-        .container {
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    min-height:100%;
+    display:grid;
+    place-items:center;
+    background: radial-gradient(1200px 600px at 10% 20%, rgba(255,102,179,0.08), transparent 8%),
+                radial-gradient(1000px 500px at 90% 80%, rgba(59,130,246,0.06), transparent 6%),
+                linear-gradient(135deg,var(--bg1),#061226 60%);
+    color: #e6eef8;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:32px;
+  }
 
-        h1 {
-            color: #ff6600;
-        }
+  .card{
+    width:100%;
+    max-width:920px;
+    border-radius:var(--radius);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    padding:28px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    backdrop-filter: blur(6px) saturate(120%);
+  }
 
-        p {
-            font-size: 18px;
-        }
+  /* left hero */
+  .left{
+    flex:1.25;
+    min-width:260px;
+  }
+  .logo{
+    display:inline-grid;
+    grid-auto-flow:column;
+    gap:10px;
+    align-items:center;
+    margin-bottom:8px;
+  }
+  .logo .mark{
+    width:44px;height:44px;border-radius:10px;
+    background: linear-gradient(135deg,var(--accent), #ffb3dd);
+    display:grid;place-items:center;font-weight:700;color:#081124;
+    box-shadow: 0 6px 18px rgba(255,102,179,0.12), inset 0 -6px 18px rgba(255,255,255,0.06);
+  }
+  .title{
+    font-size: clamp(18px, 2.6vw, 28px);
+    margin:0 0 10px 0;
+    letter-spacing: -0.4px;
+  }
+  .lead{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.45;
+  }
 
-        .contact {
-            margin-top: 20px;
-            font-size: 16px;
-        }
+  /* right status */
+  .right{
+    width:300px;
+    min-width:220px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:stretch;
+  }
+  .status{
+    background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.02));
+    border-radius:12px;
+    padding:12px;
+    text-align:center;
+  }
+  .big{
+    font-size:28px;font-weight:700;margin:6px 0;
+  }
+  .small{font-size:13px;color:var(--muted)}
 
-        .contact a {
-            color: #0077cc;
-            text-decoration: none;
-        }
+  .pulse-emoji{
+    display:inline-block;
+    font-size:34px;
+    transform-origin:center;
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.15)}
+    100%{transform:scale(1)}
+  }
 
-        .contact a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  /* subscribe */
+  .subscribe{
+    display:flex;
+    gap:8px;
+    margin-top:6px;
+  }
+  .subscribe input{
+    flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);
+    background:transparent;color:inherit;font-size:14px;
+    outline:none;
+  }
+  .btn{
+    padding:10px 12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#ff8fcf);
+    color:#081124;font-weight:700;cursor:pointer;
+    box-shadow: 0 6px 12px rgba(255,102,179,0.12);
+  }
+  .btn:active{transform:translateY(1px)}
+
+  /* footer little links */
+  .links{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+  .links a{color:inherit;text-decoration:none;opacity:.9}
+  .social{display:flex;gap:8px;align-items:center}
+
+  /* floating shapes */
+  .shape{
+    position:absolute;
+    border-radius:14px;
+    filter: blur(18px);
+    opacity:.12;
+    transform: rotate(12deg);
+    pointer-events:none;
+  }
+  .s1{width:220px;height:120px;background:linear-gradient(90deg,#7dd3fc,#60a5fa); top:-40px; right:-60px;}
+  .s2{width:160px;height:90px;background:linear-gradient(90deg,#ff66b3,#ffb3dd); bottom:-30px; left:-50px; transform: rotate(-6deg);}
+
+  /* responsiveness */
+  @media (max-width:720px){
+    .card{flex-direction:column;align-items:stretch;padding:20px}
+    .right{width:100%}
+    .logo .mark{width:40px;height:40px}
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚧 Coming Soon 🚧</h1>
-        <p>Hello random viewer, this site is AI-generated as a temporary placeholder for a real website.</p>
-        <p>This website is genuinely atrocious mm shawarmas 🤤🤤</p>
-        <div class="contact">
-            <p>Want to get in touch? You can't for now.<a href="mailto:fuck.off@example.com">Email me</a></p>
+  <main class="card" role="main" aria-labelledby="siteTitle">
+    <div class="shape s1" aria-hidden="true"></div>
+    <div class="shape s2" aria-hidden="true"></div>
+
+    <section class="left" aria-label="Intro">
+      <div class="logo" aria-hidden="true">
+        <div class="mark">✨</div>
+        <div>
+          <div style="font-size:13px;color:var(--muted);font-weight:600">Your Brand</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px">website / 𝒘.𝒆.𝒃</div>
         </div>
-    </div>
+      </div>
+
+      <h1 id="siteTitle" class="title">We’re sprucing things up — coming soon! <span class="pulse-emoji" aria-hidden="true">🚧</span></h1>
+      <p class="lead">Small site. Big vibes. Launching soon with fresh content, shiny UI, and probably too much pink.  
+        Drop your email and I’ll ping you when it’s live ✨</p>
+
+      <div style="margin-top:14px" aria-hidden="true">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+          <div style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:10px;font-size:13px">
+            Built with ❤️ HTML + CSS and a LOOOTTT of ChatGPT and myself and coffee and Shawarmas like dude there's just so many little things that fuel our daily go like we've gotta be more appreciative of shawarmas
+          </div>
+          <div style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:10px;font-size:13px">
+            Fyn, Fyn, Fyn
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px" class="links" aria-hidden="true">
+        <div>Editing Editing Editing</div>
+      </div>
+    </section>
+
+    <aside class="right" aria-label="Status & subscribe">
+      <div class="status" role="status" aria-live="polite">
+        <div class="small">ETA</div>
+        <div class="big" id="count">67d 41h 21m</div>
+        <div class="small">(estimated) Fyn!</div>
+      </div>
+
+      <form class="status" id="subForm" onsubmit="subscribe(event)" aria-label="Subscribe form">
+        <div style="font-size:13px;font-weight:700;margin-bottom:6px">FyN</div>
+        <div class="subscribe">
+          <input id="email" type="email" placeholder="you@awesome.com" aria-label="Email address" required>
+          <button class="btn" type="submit" aria-label="Subscribe">FYn</button>
+        </div>
+        <div class="small" style="margin-top:8px"> 💌</div>
+      </form>
+
+      <div class="status" style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div class="social" aria-hidden="true">
+          <a href="#" title="Twitter">🐦</a>
+          <a href="#" title="Instagram">📸</a>
+          <a href="#" title="GitHub">💻</a>
+        </div>
+        <div class="small">Made with love — edit this text to add your own links</div>
+      </div>
+    </aside>
+  </main>
+
+<script>
+  // --------- small countdown you can customize ----------
+  // default: 14 days from now
+  (function(){
+    const target = new Date(Date.now() + 14*24*60*60*1000); // change this date if you want
+    const el = document.getElementById('count');
+
+    function pad(n){return String(n).padStart(2,'0')}
+    function tick(){
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+      const days = Math.floor(diff / (24*3600*1000));
+      diff -= days*24*3600*1000;
+      const hours = Math.floor(diff / 3600000);
+      diff -= hours*3600000;
+      const mins = Math.floor(diff / 60000);
+      el.textContent = `${days}d ${pad(hours)}h ${pad(mins)}m`;
+      if(target - now <= 0){ el.textContent = "Launching very soon 🎉"; clearInterval(iv) }
+    }
+    tick();
+    const iv = setInterval(tick, 60_000);
+  })();
+
+  // --------- tiny subscribe handler (no backend) ----------
+  function subscribe(e){
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    if(!email) return;
+    // fallback: open mail client prefilled
+    const subj = encodeURIComponent('Subscribe: Launch notify');
+    const body = encodeURIComponent('Hey, please add me to the launch list.\n\nEmail: ' + email);
+    // mailto fallback - replace "you@yourdomain.com" with real recipient when you have a backend
+    window.location.href = `mailto:you@yourdomain.com?subject=${subj}&body=${body}`;
+  }
+</script>
 </body>
 </html>
-
