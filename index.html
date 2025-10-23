@@ -1,255 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>G.O.A.T</title>
-<link rel="icon" href="data:,">
-<style>
-  :root{
-    --bg1:#0f172a; /* deep indigo */
-    --bg2:#3b82f6; /* electric blue */
-    --accent:#ff66b3; /* pink pop */
-    --card:#0b1220cc;
-    --glass: rgba(255,255,255,0.06);
-    --muted:#9aa6c0;
-    --radius:16px;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  }
-
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    min-height:100%;
-    display:grid;
-    place-items:center;
-    background: radial-gradient(1200px 600px at 10% 20%, rgba(255,102,179,0.08), transparent 8%),
-                radial-gradient(1000px 500px at 90% 80%, rgba(59,130,246,0.06), transparent 6%),
-                linear-gradient(135deg,var(--bg1),#061226 60%);
-    color: #e6eef8;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    padding:32px;
-  }
-
-  .card{
-    width:100%;
-    max-width:920px;
-    border-radius:var(--radius);
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-    padding:28px;
-    display:flex;
-    gap:20px;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-    backdrop-filter: blur(6px) saturate(120%);
-  }
-
-  /* left hero */
-  .left{
-    flex:1.25;
-    min-width:260px;
-  }
-  .logo{
-    display:inline-grid;
-    grid-auto-flow:column;
-    gap:10px;
-    align-items:center;
-    margin-bottom:8px;
-  }
-  .logo .mark{
-    width:44px;height:44px;border-radius:10px;
-    background: linear-gradient(135deg,var(--accent), #ffb3dd);
-    display:grid;place-items:center;font-weight:700;color:#081124;
-    box-shadow: 0 6px 18px rgba(255,102,179,0.12), inset 0 -6px 18px rgba(255,255,255,0.06);
-  }
-  .title{
-    font-size: clamp(18px, 2.6vw, 28px);
-    margin:0 0 10px 0;
-    letter-spacing: -0.4px;
-  }
-  .lead{
-    margin:0;
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.45;
-  }
-
-  /* right status */
-  .right{
-    width:300px;
-    min-width:220px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    align-items:stretch;
-  }
-  .status{
-    background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.02));
-    border-radius:12px;
-    padding:12px;
-    text-align:center;
-  }
-  .big{
-    font-size:28px;font-weight:700;margin:6px 0;
-  }
-  .small{font-size:13px;color:var(--muted)}
-
-  .pulse-emoji{
-    display:inline-block;
-    font-size:34px;
-    transform-origin:center;
-    animation: pulse 1.6s infinite;
-  }
-  @keyframes pulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.15)}
-    100%{transform:scale(1)}
-  }
-
-  /* subscribe */
-  .subscribe{
-    display:flex;
-    gap:8px;
-    margin-top:6px;
-  }
-  .subscribe input{
-    flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);
-    background:transparent;color:inherit;font-size:14px;
-    outline:none;
-  }
-  .btn{
-    padding:10px 12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#ff8fcf);
-    color:#081124;font-weight:700;cursor:pointer;
-    box-shadow: 0 6px 12px rgba(255,102,179,0.12);
-  }
-  .btn:active{transform:translateY(1px)}
-
-  /* footer little links */
-  .links{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-  .links a{color:inherit;text-decoration:none;opacity:.9}
-  .social{display:flex;gap:8px;align-items:center}
-
-  /* floating shapes */
-  .shape{
-    position:absolute;
-    border-radius:14px;
-    filter: blur(18px);
-    opacity:.12;
-    transform: rotate(12deg);
-    pointer-events:none;
-  }
-  .s1{width:220px;height:120px;background:linear-gradient(90deg,#7dd3fc,#60a5fa); top:-40px; right:-60px;}
-  .s2{width:160px;height:90px;background:linear-gradient(90deg,#ff66b3,#ffb3dd); bottom:-30px; left:-50px; transform: rotate(-6deg);}
-
-  /* responsiveness */
-  @media (max-width:720px){
-    .card{flex-direction:column;align-items:stretch;padding:20px}
-    .right{width:100%}
-    .logo .mark{width:40px;height:40px}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Future Icon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <main class="card" role="main" aria-labelledby="siteTitle">
-    <div class="shape s1" aria-hidden="true"></div>
-    <div class="shape s2" aria-hidden="true"></div>
+<body class="bg-black text-white font-sans">
 
-    <section class="left" aria-label="Intro">
-      <div class="logo" aria-hidden="true">
-        <div class="mark">✨</div>
-        <div>
-          <div style="font-size:13px;color:var(--muted);font-weight:600">FYN</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px">500 cigarettes</div>
-        </div>
+  <!-- HERO SECTION -->
+  <section class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-900 to-pink-600 text-center px-4">
+    <h1 class="text-6xl md:text-8xl font-extrabold mb-4">I Am [Your Name]</h1>
+    <p class="text-xl md:text-2xl mb-8">Future Visionary | Planet-Saver | Rocket Scientist | Culture Icon</p>
+    <a href="#projects" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">See My Empire</a>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 px-6 md:px-20 bg-black">
+    <h2 class="text-4xl font-bold mb-6">About Me</h2>
+    <p class="text-lg leading-relaxed">
+      I’m building a legacy that spans tech, science, culture, and humanity. From rockets to medical breakthroughs, my mission is to leave the world better than I found it. This website is my HQ.
+    </p>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="py-20 px-6 md:px-20 bg-gray-900">
+    <h2 class="text-4xl font-bold mb-12 text-center">Projects & Vision</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-purple-800 p-6 rounded-lg hover:scale-105 transition-transform">
+        <h3 class="text-2xl font-bold mb-2">Rocket Science</h3>
+        <p>Designing the future of space travel with sustainable tech and style.</p>
       </div>
-
-      <h1 id="siteTitle" class="title"> Work in progress<span class="pulse-emoji" aria-hidden="true">🌹😔🫩</span></h1>
-      <p class="lead"> WORK IN PROGRESS</p>
-
-      <div style="margin-top:14px" aria-hidden="true">
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
-          <div style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:10px;font-size:13px">
-            Built with HTML  Shawarma
-          </div>
-          <div style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:10px;font-size:13px">
-            Fyn, Fyn, Fyn
-          </div>
-        </div>
+      <div class="bg-pink-700 p-6 rounded-lg hover:scale-105 transition-transform">
+        <h3 class="text-2xl font-bold mb-2">Medical Innovation</h3>
+        <p>Developing next-gen therapies to improve human life across the globe.</p>
       </div>
-
-      <div style="margin-top:18px" class="links" aria-hidden="true">
-        <div>Fyn Fyn FFyn</div>
+      <div class="bg-purple-600 p-6 rounded-lg hover:scale-105 transition-transform">
+        <h3 class="text-2xl font-bold mb-2">Culture & Music</h3>
+        <p>Creating experiences that redefine art, music, and global culture.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <aside class="right" aria-label="Status & subscribe">
-      <div class="status" role="status" aria-live="polite">
-        <div class="small">ETA</div>
-        <div class="big" id="count">67d 41h 21m</div>
-        <div class="small">(estimated) Fyn!</div>
-      </div>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-20 px-6 md:px-20 bg-black text-center">
+    <h2 class="text-4xl font-bold mb-6">Connect With Me</h2>
+    <p class="mb-8">Opportunities, collabs, or just to say hi — hit me up!</p>
+    <a href="mailto:yourname@example.com" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">Email Me</a>
+  </section>
 
-      <form class="status" id="subForm" onsubmit="subscribe(event)" aria-label="Subscribe form">
-        <div style="font-size:13px;font-weight:700;margin-bottom:6px">FyN</div>
-        <div class="subscribe">
-          <input id="email" type="email" placeholder="fyn@awesome.com" aria-label="Email address" required>
-          <button class="btn" type="submit" aria-label="Subscribe">FYn</button>
-        </div>
-        <div class="small" style="margin-top:8px"> 💌</div>
-      </form>
+  <footer class="py-6 text-center bg-gray-900">
+    <p>© 2025 [Your Name]. All Rights Reserved.</p>
+  </footer>
 
-      <div class="status" style="display:flex;flex-direction:column;gap:8px;align-items:center">
-        <div class="social" aria-hidden="true">
-          <a href="#" title="Twitter">🐦</a>
-          <a href="#" title="Instagram">📸</a>
-          <a href="#" title="GitHub">💻</a>
-        </div>
-        <div class="small">FynFynFyFFFyn</div>
-      </div>
-    </aside>
-  </main>
-
-<script>
-  // --------- small countdown you can customize ----------
-  // default: 14 days from now
-  (function(){
-    const target = new Date(Date.now() + 14*24*60*60*1000); // change this date if you want
-    const el = document.getElementById('count');
-
-    function pad(n){return String(n).padStart(2,'0')}
-    function tick(){
-      const now = new Date();
-      let diff = Math.max(0, target - now);
-      const days = Math.floor(diff / (24*3600*1000));
-      diff -= days*24*3600*1000;
-      const hours = Math.floor(diff / 3600000);
-      diff -= hours*3600000;
-      const mins = Math.floor(diff / 60000);
-      el.textContent = `${days}d ${pad(hours)}h ${pad(mins)}m`;
-      if(target - now <= 0){ el.textContent = "Lau"; clearInterval(iv) }
-    }
-    tick();
-    const iv = setInterval(tick, 60_000);
-  })();
-
-  // --------- tiny subscribe handler (no backend) ----------
-  function subscribe(e){
-    e.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    if(!email) return;
-    // fallback: open mail client prefilled
-    const subj = encodeURIComponent('Subscribe: Launch notify');
-    const body = encodeURIComponent('Hey, please add me to the launch list.\n\nEmail: ' + email);
-  
-    window.location.href = `mailto:you@yourdomain.com?subject=${subj}&body=${body}`;
-  }
-</script>
 </body>
 </html>
-
-
-
